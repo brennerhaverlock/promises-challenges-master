@@ -61,6 +61,18 @@ function uppercaser(str) {
     });
 }
 
+function spacer(str) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      if (typeof str === 'string') { 
+        resolve(str.split('').join(' '));
+      } else {
+        reject('Argument to spacer must be string');
+      }
+    }, 500);
+  });
+}
+
 async function greetAndUppercase(name) {
     greeting = await greet(name)
     uppercasedGreeting = await uppercaser(greeting)
@@ -72,10 +84,10 @@ async function greetAndUppercase(name) {
 // console.log(result)
 
 /* Uncomment me! #2 */
-// greetAndUppercase('Ducky')
-//     .then(function(result) {
-//         console.log(result)
-//     })
-//     .catch(function(err) {
-//         console.log(err)
-//     })
+greetAndUppercase('Ducky')
+    .then(function(result) {
+        console.log(result)
+    })
+    .catch(function(err) {
+        console.log(err)
+    })
